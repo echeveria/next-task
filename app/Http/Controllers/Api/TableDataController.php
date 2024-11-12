@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class TableDataController extends Controller
 {
-    public function getData()
+    public function getProducts()
     {
-        // Returning a sample JSON response
-        return response()->json([
-            'message' => 'Hello from the API!',
-            'status' => 'success',
-        ]);
+        // Fetch all products
+        $products = Product::all();
+
+        // Return products as JSON
+        return response()->json($products);
     }
 }
